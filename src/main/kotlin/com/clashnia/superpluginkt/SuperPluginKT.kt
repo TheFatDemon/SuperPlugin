@@ -11,7 +11,7 @@ class SuperPluginKT : JavaPlugin() {
     override fun onEnable() {
         logger.info("Starting SuperPluginKT")
 
-        modules.add(PlayerLogModule(this, "PlayerLogModule"))
+        modules.add(PlayerLogModule(this))
 
         for (module in modules) {
             module.registerModule()
