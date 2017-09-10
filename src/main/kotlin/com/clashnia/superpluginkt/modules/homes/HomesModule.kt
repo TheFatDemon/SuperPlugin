@@ -9,6 +9,7 @@ class HomesModule (plugin : SuperPluginKT) : BaseModule(plugin, "HomesModule") {
 
         this.getPlugin().server.logger.info("Starting Register of " + getName())
 
+        this.getPlugin().getCommand("home").executor = HomesModuleCommand(this)
 
     }
 }

@@ -28,7 +28,7 @@ class HomesDac(plugin: SuperPluginKT) : BaseDac(plugin) {
         }
     }
 
-    fun getHome(player: Player, name: String) : Location? {
+    fun getHome(player: Player, name: String = "default") : Location? {
 
         val db = this.openDatabase()
 

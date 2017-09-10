@@ -5,7 +5,7 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 
-abstract class BaseCommand (private val module: BaseModule) : CommandExecutor {
+abstract class BaseCommand (protected val module: BaseModule) : CommandExecutor {
     enum class CommandResult {
         NO_PERMISSIONS,
         PLAYER_ONLY,
@@ -42,4 +42,4 @@ abstract class BaseCommand (private val module: BaseModule) : CommandExecutor {
     abstract fun runCommand(sender : CommandSender, command : Command, args : Array<out String>?) : CommandResult
 }
 
-private operator fun ChatColor.plus(s: String) : String = this.toString() + s
+operator fun ChatColor.plus(s: String) : String = this.toString() + s
