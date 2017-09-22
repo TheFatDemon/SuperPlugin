@@ -9,7 +9,11 @@ class HomesModule (plugin : SuperPluginKT) : BaseModule(plugin, "HomesModule") {
 
         this.getPlugin().server.logger.info("Starting Register of " + getName())
 
-        this.getPlugin().getCommand("home").executor = HomesModuleCommand(this)
 
+        val homeCommand = HomesModuleCommand(this)
+        this.getPlugin().getCommand("home").executor = homeCommand
+        this.getPlugin().getCommand("homes").executor = homeCommand
+        this.getPlugin().getCommand("sethome").executor = homeCommand
+        this.getPlugin().getCommand("delhome").executor = homeCommand
     }
 }

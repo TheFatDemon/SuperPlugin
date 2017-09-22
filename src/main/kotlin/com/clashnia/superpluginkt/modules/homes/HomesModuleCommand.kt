@@ -5,7 +5,6 @@ import com.clashnia.superpluginkt.modules.BaseCommand
 import com.clashnia.superpluginkt.modules.BaseCommand.CommandResult.*
 import com.clashnia.superpluginkt.modules.plus
 import org.bukkit.ChatColor
-import org.bukkit.Location
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -78,6 +77,27 @@ class HomesModuleCommand (module : HomesModule) : BaseCommand(module) {
             }
 
             // Handle setting Home
+
+            if (!sender.hasPermission("superplugin.home.sethome")) {
+                return NO_PERMISSIONS
+            }
+
+
+
+        } else if (command.name == "delhome") {
+            // Handle /delhome
+            // Player Check
+            if (sender !is Player) {
+                return PLAYER_ONLY
+            }
+
+            if (!sender.hasPermission("superplugin.home.delhome")) {
+                return NO_PERMISSIONS
+            }
+
+            val homesDac = HomesDac(this.module.getPlugin())
+
+
         }
 
         return SILENT_ERROR
